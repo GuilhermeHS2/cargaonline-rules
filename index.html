@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CargaOnline — Guia de Regras de Negócio</title>
+    <meta name="description" content="Guia oficial das regras de negócio do sistema CargaOnline, para uso da equipe de Suporte.">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        /* Identifica a página atual para a sidebar marcar o item ativo.
+           Em index.html não precisa de valor — nada fica marcado. */
+        window.PAGINA_ATUAL = 'index.html';
+    </script>
+</head>
+<body>
+
+<!-- Cabeçalho injetado pelo nav.js -->
+<div id="app-header-mount"></div>
+
+<div class="app-layout">
+
+    <!-- Sidebar injetada pelo nav.js -->
+    <div id="app-sidebar-mount"></div>
+
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <section class="section-hero">
+                <span class="section-hero__num">GUIA DE REGRAS DE NEGÓCIO</span>
+                <h1>CargaOnline</h1>
+                <p>Como cada funcionalidade funciona, quais as regras e o que é permitido ou bloqueado no sistema. Para uso da equipe de Suporte.</p>
+            </section>
+
+            <p class="muted">
+                Versão 1.0 &middot; Maio de 2026 &middot;
+                <span class="tag tag--primaria">19 seções</span>
+            </p>
+
+            <h2>Sumário</h2>
+            <p>Selecione a seção que deseja consultar. Use a busca no topo para encontrar rapidamente uma regra específica.</p>
+
+            <!-- Grid de cards é construído pelo JS abaixo -->
+            <div id="cards-secoes" class="cards-grid"></div>
+
+            <hr>
+
+            <h2>Como usar este guia</h2>
+            <p>
+                Este documento online concentra todas as regras de negócio do CargaOnline. Cada seção
+                trata de um módulo do sistema. Para imprimir ou salvar como PDF, use o botão
+                <strong>Imprimir</strong> no topo da página.
+            </p>
+
+            <div class="callout callout--dica">
+                <span class="callout__icon">💡</span>
+                <div class="callout__body">
+                    <strong>Dica:</strong> Se um usuário relata que não vê uma funcionalidade, verifique
+                    primeiro se o módulo correspondente está ativo para a transportadora dele.
+                    Veja a lista completa em <a href="pages/19-modulos.html">19. Módulos Disponíveis</a>.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Rodapé injetado pelo nav.js -->
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<!-- Scripts: ordem importa.
+     1) data.js define dados; 2) nav.js monta UI; 3) search.js liga busca; 4) main.js comportamentos -->
+<script src="js/data.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Renderização dos cards da home (puxa do GUIA.SECOES) -->
+<script>
+(function () {
+    var container = document.getElementById('cards-secoes');
+    if (!container || !window.GUIA) return;
+
+    container.innerHTML = window.GUIA.SECOES.map(function (s) {
+        return ''
+            + '<a class="card" href="pages/' + s.arquivo + '">'
+            + '  <div class="card__num">SEÇÃO ' + s.num + '</div>'
+            + '  <div class="card__title">' + s.titulo + '</div>'
+            + '  <p class="card__desc">' + s.desc + '</p>'
+            + '</a>';
+    }).join('');
+})();
+</script>
+
+</body>
+</html>

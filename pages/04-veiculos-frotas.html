@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Veículos e Frotas — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '04-veiculos-frotas.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 4</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 4</span>
+                <h1>Veículos e Frotas</h1>
+                <p>Cadastro de veículos e formação de conjuntos operacionais.</p>
+            </section>
+
+            <h2 id="veiculos">4.1 Veículos</h2>
+            <ul class="lista-regras">
+                <li>Dois tipos: <strong>Cavalo</strong> e <strong>Carreta</strong>.</li>
+                <li>Cada veículo tem placa, marca, modelo, frota e pertence a uma transportadora.</li>
+                <li>O status atual do veículo é registrado (Disponível, Em viagem, Indisponível).</li>
+                <li>Último checklist realizado no veículo fica disponível para consulta rápida.</li>
+            </ul>
+
+            <h2 id="frotas">4.2 Frotas (Vínculos)</h2>
+            <p>Uma Frota é a composição operacional: motorista + veículos formam um conjunto para realizar viagens.</p>
+            <ul class="lista-regras">
+                <li>Composição: 1 motorista principal + 1 cavalo + até 2 carretas (opcionais) + 1 motorista secundário (opcional).</li>
+                <li>Um motorista ou veículo pode estar em mais de uma Frota — o sistema avisa sobre vínculo duplicado, mas permite prosseguir.</li>
+                <li>Ao desvincular, a Frota recebe uma data de encerramento e fica inativa.</li>
+                <li>Cada Frota tem um ID de conjunto que pode ser personalizado.</li>
+            </ul>
+
+            <div class="callout callout--dica">
+                <span class="callout__icon">💡</span>
+                <div class="callout__body">
+                    <strong>Exemplo:</strong> Motorista João + Cavalo XYZ-1234 + Carreta ABC-5678 = uma Frota.
+                    Essa Frota realiza a viagem SP → RJ.
+                </div>
+            </div>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

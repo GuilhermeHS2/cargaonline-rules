@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Status — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '05-status.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 5</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 5</span>
+                <h1>Status</h1>
+                <p>Mostra em qual situação está cada motorista, veículo, Frota ou Demanda.</p>
+            </section>
+
+            <div class="tabela-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Status</th><th>O que significa</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Disponível</strong></td><td>Pronto para ser alocado em nova operação.</td></tr>
+                        <tr><td><strong>Em viagem</strong></td><td>Em uma operação ou viagem em andamento.</td></tr>
+                        <tr><td><strong>Indisponível</strong></td><td>Não pode ser alocado (férias, manutenção, afastamento).</td></tr>
+                        <tr><td><strong>Sem programação</strong></td><td>Sem demanda vinculada no momento.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Regras</h2>
+            <ul class="lista-regras">
+                <li>Cada transportadora cria seus próprios nomes de status com cores personalizadas, dentro dos tipos acima.</li>
+                <li>Status pode ter prazo máximo em dias — se ultrapassado, o sistema pode gerar alerta.</li>
+                <li>Todo status aplicado fica registrado com data de início e data de fim.</li>
+                <li>Status podem ser agendados com antecedência — na data e hora programada, o status muda automaticamente.</li>
+                <li>Se houver conflito de datas em agendamentos, o sistema avisa antes de confirmar.</li>
+                <li>Ações automáticas podem ser configuradas para disparar quando um status específico é atingido.</li>
+            </ul>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

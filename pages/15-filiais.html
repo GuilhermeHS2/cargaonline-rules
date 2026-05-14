@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15. Filiais, Unidades e Grupos de Agendamento — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '15-filiais.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 15</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 15</span>
+                <h1>Filiais, Unidades e Grupos de Agendamento</h1>
+                <p>Como o sistema organiza usuários, veículos e operações em conjuntos.</p>
+            </section>
+
+            <h2 id="filiais">15.1 Filiais</h2>
+            <ul class="lista-regras">
+                <li>Unidades regionais ou departamentais da transportadora (ex: Filial SP, Filial MG).</li>
+                <li>Usuários, veículos e demandas são associados a Filiais.</li>
+                <li>Cada Filial pode ter responsáveis definidos.</li>
+                <li>O Admin Master vê todas as Filiais; Gestores veem apenas as suas.</li>
+            </ul>
+
+            <h2 id="unidades">15.2 Unidades (Grupos de Checklist)</h2>
+            <ul class="lista-regras">
+                <li>Organizam motoristas e veículos por tipo de serviço para fins de Checklist.</li>
+                <li>Ao excluir uma Unidade, os checklists e veículos vinculados são desassociados.</li>
+            </ul>
+
+            <h2 id="agendamento">15.3 Grupos de Agendamento</h2>
+            <ul class="lista-regras">
+                <li>Organizam os responsáveis pela gestão de Demandas e viagens.</li>
+                <li>Contêm motoristas, responsáveis e veículos.</li>
+                <li>Os responsáveis acompanham as operações dos motoristas do grupo.</li>
+            </ul>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

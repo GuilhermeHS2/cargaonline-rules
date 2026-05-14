@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7. Checklist — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '07-checklist.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 7</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 7</span>
+                <h1>Checklist</h1>
+                <p>Formulário de inspeção de veículos preenchido pelo motorista no aplicativo.</p>
+            </section>
+
+            <p>
+                O Checklist é um formulário de inspeção de veículos que o motorista preenche pelo
+                aplicativo, registrando as condições do veículo antes ou depois de uma viagem.
+            </p>
+
+            <div class="callout callout--dica">
+                <span class="callout__icon">💡</span>
+                <div class="callout__body">
+                    <strong>Exemplo:</strong> checklist de pré-viagem pergunta sobre pneus, freios, óleo e documentação.
+                    O motorista responde pelo aplicativo antes de sair.
+                </div>
+            </div>
+
+            <h2 id="estrutura">7.1 Estrutura do Checklist</h2>
+            <p>Checklist → Etapas → Itens de verificação → Respostas</p>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead><tr><th>Modelo de veículo</th><th>Para quem é</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cavalo</td><td>Inspeção somente do cavalo.</td></tr>
+                        <tr><td>Carreta</td><td>Inspeção somente da carreta.</td></tr>
+                        <tr><td>Conjunto completo</td><td>Inspeção do cavalo + carreta juntos.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="tipos-resposta">7.2 Tipos de Resposta dos Itens</h2>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead><tr><th>Tipo</th><th>Como o motorista responde</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sim / Não</td><td>Seleção entre Sim ou Não.</td></tr>
+                        <tr><td>Bom / Ruim</td><td>Seleção entre Bom ou Ruim.</td></tr>
+                        <tr><td>Texto</td><td>Campo de texto livre.</td></tr>
+                        <tr><td>Número</td><td>Campo numérico.</td></tr>
+                        <tr><td>Foto</td><td>Captura de foto pela câmera do celular.</td></tr>
+                        <tr><td>Assinatura</td><td>Assinatura digital do motorista.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="config-item">7.3 Configurações por Item</h2>
+            <ul class="lista-regras">
+                <li><strong>Resposta esperada:</strong> cada item pode ter uma resposta considerada correta. Respostas fora do esperado geram um item de Manutenção.</li>
+                <li><strong>Reprovação automática:</strong> se ativado, qualquer item com não conformidade reprova o checklist inteiro automaticamente, independentemente das demais respostas.</li>
+                <li><strong>Não se aplica:</strong> quando ativado, o motorista pode sinalizar que o item não se aplica ao veículo que está inspecionando.</li>
+                <li><strong>Observações:</strong> o motorista pode adicionar um comentário explicativo em qualquer item (não é obrigatório).</li>
+                <li><strong>Evidência (foto):</strong> pode ser configurado para solicitar foto sempre, apenas quando a resposta estiver fora do esperado, ou nunca.</li>
+                <li><strong>Referência:</strong> arquivo (JPG, PNG ou PDF) que pode ser anexado ao item como referência visual para o motorista.</li>
+            </ul>
+
+            <h2 id="regras-gerais">7.4 Regras Gerais dos Checklists</h2>
+            <ul class="lista-regras">
+                <li>Checklists podem exigir validação de um Gestor ou Admin Master — o motorista preenche e o responsável aprova ou reprova.</li>
+                <li>Se o checklist exige validação e o Gestor reprova, o motorista precisa preencher novamente.</li>
+                <li>Pode ser obrigatório escrever um comentário final ao concluir o checklist.</li>
+                <li>Um Usuário só vê os checklists da sua Unidade (Grupo de Checklist).</li>
+                <li>O Admin Master vê todos os checklists da transportadora.</li>
+                <li>Checklists nunca são apagados permanentemente — ficam arquivados.</li>
+                <li>Ao excluir um checklist, os envios e histórico já realizados são preservados.</li>
+            </ul>
+
+            <h2 id="unidades">7.5 Grupos de Checklist (Unidades)</h2>
+            <p>Os Grupos de Checklist (chamados de "Unidades" no sistema) são a forma de organizar quais motoristas e veículos realizam quais checklists.</p>
+            <ul class="lista-regras">
+                <li>Cada Unidade pertence a uma transportadora.</li>
+                <li>Motoristas e veículos são vinculados a uma Unidade.</li>
+                <li>Checklists são associados a Unidades — o motorista só vê os checklists da sua Unidade.</li>
+                <li>Um motorista pode pertencer a mais de uma Unidade.</li>
+                <li>Ao excluir uma Unidade, os checklists e veículos vinculados a ela também são desassociados.</li>
+            </ul>
+            <div class="callout callout--dica">
+                <span class="callout__icon">💡</span>
+                <div class="callout__body">
+                    <strong>Exemplo:</strong> Unidade "Longa Distância" tem os checklists de saída e chegada de viagem longa.
+                    Unidade "Distribuição Urbana" tem um checklist mais simples de inspeção diária.
+                </div>
+            </div>
+
+            <h2 id="auto-inicio">7.6 Auto Início de Checklist</h2>
+            <ul class="lista-regras">
+                <li>O Admin Master pode habilitar a opção de "Auto Início" — permite que o próprio motorista inicie um checklist sem precisar de envio por Gestor.</li>
+                <li>O Auto Início é configurado por Unidade — apenas os motoristas das Unidades selecionadas podem iniciar sozinhos.</li>
+                <li>O Admin Master define quais checklists ficam disponíveis para auto início em cada Unidade.</li>
+                <li>Mesmo no auto início, o envio é contabilizado normalmente para fins de histórico e relatório.</li>
+            </ul>
+
+            <h2 id="cronogramas">7.7 Cronogramas de Checklist</h2>
+            <ul class="lista-regras">
+                <li>Checklists podem ser agendados para envio automático em datas e horários específicos (Cronogramas).</li>
+                <li>O Cronograma define: qual checklist enviar, para quais usuários/grupos, em quais datas e horários.</li>
+                <li>Pode-se definir um checklist específico fixo no cronograma, ou deixar em aberto para o Gestor selecionar na hora do envio.</li>
+                <li>Ao excluir um Cronograma, nenhum novo envio será realizado — o histórico dos envios já feitos não é perdido.</li>
+            </ul>
+
+            <h2 id="historico">7.8 Histórico e Manutenção</h2>
+            <ul class="lista-regras">
+                <li>Cada checklist respondido fica registrado no Histórico com: data, motorista, veículo, respostas por item e itens de Manutenção.</li>
+                <li>Quando um item indica problema (resposta fora do esperado), é registrado automaticamente em Manutenção.</li>
+                <li>O Gestor acompanha todos os itens de Manutenção abertos e pode tratá-los e encerrá-los.</li>
+                <li>É possível exportar relatório completo de itens de Manutenção por período.</li>
+                <li>Notificações podem ser configuradas para alertar Gestores quando um checklist tem itens com problema.</li>
+            </ul>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Torre de Controle — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '06-torre-controle.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 6</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 6</span>
+                <h1>Torre de Controle</h1>
+                <p>Módulo central de gestão operacional — Demandas, viagens e acompanhamento em tempo real.</p>
+            </section>
+
+            <p>
+                A Torre de Controle é onde Gestores e Admin Masters criam, acompanham e gerenciam
+                todas as Demandas (viagens) da transportadora em tempo real.
+            </p>
+
+            <div class="callout callout--dica">
+                <span class="callout__icon">💡</span>
+                <div class="callout__body">
+                    Pense na Torre de Controle como o "painel de operações" da transportadora — tudo
+                    relacionado à execução de viagens, alocação de Frotas e acompanhamento de status está aqui.
+                </div>
+            </div>
+
+            <h2 id="visoes">6.1 Visões da Torre de Controle</h2>
+            <p>A Torre tem três visões principais que podem ser alternadas:</p>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead><tr><th>Visão</th><th>O que mostra</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Demandas (tabela)</strong></td><td>Lista todas as demandas com colunas configuráveis. Permite filtros avançados por status, motorista, Filial, Grupo de Agendamento, operação e campos personalizados.</td></tr>
+                        <tr><td><strong>Planejamento (timeline)</strong></td><td>Exibe uma linha do tempo visual das demandas por Frota, motorista, veículo, Filial ou Grupo de Agendamento. Facilita a visualização da programação da semana.</td></tr>
+                        <tr><td><strong>Em viagem</strong></td><td>Mostra somente as demandas que estão em andamento no momento, com visão de progresso da rota e última posição GPS de cada Frota.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="demanda">6.2 O que é uma Demanda</h2>
+            <p>Uma Demanda é uma viagem ou operação logística. Cada demanda contém:</p>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead><tr><th>Campo</th><th>O que é</th></tr></thead>
+                    <tbody>
+                        <tr><td>Tipo</td><td>Normal (com carga) / Deslocamento vazio / Carga fracionada</td></tr>
+                        <tr><td>Código</td><td>Identificador personalizado da demanda (opcional)</td></tr>
+                        <tr><td>Origem e Destinos</td><td>Endereços de coleta e entrega, com datas previstas</td></tr>
+                        <tr><td>Alocação</td><td>Motorista + Cavalo + Carreta(s) que vão executar a viagem</td></tr>
+                        <tr><td>Status</td><td>Situação atual da demanda (ex: Em viagem, Finalizada, Sem programação)</td></tr>
+                        <tr><td>KM da rota</td><td>Distância total prevista da viagem</td></tr>
+                        <tr><td>Peso</td><td>Peso da carga transportada</td></tr>
+                        <tr><td>Valor</td><td>Valor do frete</td></tr>
+                        <tr><td>Pedágio</td><td>Valor estimado de pedágios (opcional)</td></tr>
+                        <tr><td>Filial</td><td>Filial responsável pela demanda</td></tr>
+                        <tr><td>Responsáveis</td><td>Usuários responsáveis pelo acompanhamento</td></tr>
+                        <tr><td>Grupos de Agendamento</td><td>Grupos vinculados à demanda para gestão</td></tr>
+                        <tr><td>Operações</td><td>Operações vinculadas à demanda</td></tr>
+                        <tr><td>Documentos</td><td>Arquivos anexados (notas fiscais, CT-e, canhotos)</td></tr>
+                        <tr><td>Campos personalizados</td><td>Informações extras configuradas pela transportadora</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="criacao">6.3 Regras de Criação de Demandas</h2>
+            <ul class="lista-regras">
+                <li>Uma demanda é sempre vinculada a uma Frota (conjunto motorista + veículo).</li>
+                <li>A demanda pode ser criada sem a Frota definida — fica como "Sem programação" até ser alocada.</li>
+                <li>A transportadora pode configurar campos obrigatórios — se não preenchidos, a demanda não pode ser salva.</li>
+                <li>Uma demanda pode ter múltiplos destinos (pontos de entrega em sequência).</li>
+                <li>O código da demanda é opcional e pode ser personalizado pela transportadora.</li>
+                <li>Demandas podem ser importadas em lote por planilha.</li>
+            </ul>
+
+            <h2 id="resposta">6.4 Resposta do Motorista</h2>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead><tr><th>Status do motorista</th><th>O que significa</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Pendente</strong></td><td>A demanda foi atribuída mas o motorista ainda não respondeu.</td></tr>
+                        <tr><td><strong>Aceito</strong></td><td>O motorista aceitou a demanda pelo aplicativo.</td></tr>
+                        <tr><td><strong>Recusado</strong></td><td>O motorista recusou a demanda.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="lista-regras">
+                <li>O sistema registra a data e hora em que o motorista visualizou a demanda pela primeira vez.</li>
+                <li>O Admin Master e o Gestor acompanham em tempo real a resposta do motorista.</li>
+            </ul>
+
+            <h2 id="visibilidade">6.5 Visibilidade das Demandas</h2>
+            <ul class="lista-regras">
+                <li>Cada Usuário (motorista) vê apenas as demandas vinculadas à sua Frota.</li>
+                <li>Cada Gestor vê apenas as demandas das Filiais e Grupos de Agendamento que ele gerencia.</li>
+                <li>O Admin Master vê todas as demandas da transportadora.</li>
+                <li>A visibilidade pode ser configurada por "Visibilidades" — filtros salvos que restringem quais demandas cada grupo de usuários vê na Torre.</li>
+            </ul>
+
+            <div class="callout callout--atencao">
+                <span class="callout__icon">⚠️</span>
+                <div class="callout__body">
+                    <strong>Atenção:</strong> Motoristas não enxergam demandas de outras Filiais.
+                    O Admin Master tem visão completa.
+                </div>
+            </div>
+
+            <h2 id="tempo-real">6.6 Acompanhamento em Tempo Real</h2>
+            <ul class="lista-regras">
+                <li>A Torre de Controle é atualizada automaticamente via conexão em tempo real (WebSocket) — não é necessário recarregar a página.</li>
+                <li>O progresso da rota de cada Frota em viagem é exibido com base na posição GPS atual do veículo.</li>
+                <li>A última posição GPS de cada cavalo fica disponível na visão "Em viagem" e na tela de detalhes da Frota.</li>
+                <li>O sistema indica automaticamente quais demandas estão atrasadas em relação à previsão de coleta ou entrega.</li>
+            </ul>
+
+            <h2 id="deslocamento">6.7 Deslocamento Vazio</h2>
+            <ul class="lista-regras">
+                <li>Quando uma Frota termina uma viagem e precisa se deslocar para buscar uma nova carga, o Gestor pode criar um "Deslocamento vazio".</li>
+                <li>O deslocamento vazio registra: cidade de origem (onde a Frota está), cidade de destino, previsão de chegada e Filial.</li>
+                <li>Fica visível na linha do tempo da Frota, facilitando o planejamento.</li>
+            </ul>
+
+            <h2 id="visibilidades">6.8 Visibilidades (Filtros Salvos)</h2>
+            <ul class="lista-regras">
+                <li>O Admin Master e o Gestor podem criar Visibilidades — combinações de filtros salvas para acessar rapidamente um subconjunto de demandas.</li>
+                <li>Exemplos: "Demandas da Filial SP em viagem", "Demandas do Grupo de Agendamento Norte".</li>
+                <li>Visibilidades podem ser compartilhadas entre usuários da mesma transportadora.</li>
+                <li>A tabela da Torre pode ser personalizada — o usuário escolhe quais colunas exibir e em qual ordem.</li>
+            </ul>
+
+            <h2 id="relatorio">6.9 Relatório da Torre de Controle</h2>
+            <p>A Torre tem um relatório gerencial com os seguintes indicadores:</p>
+            <ul class="lista-regras">
+                <li>Total de Demandas no período</li>
+                <li>Demandas sem alocação (sem Frota definida)</li>
+                <li>Demandas em viagem</li>
+                <li>Demandas finalizadas</li>
+                <li>Previsibilidade média (percentual de demandas dentro do prazo)</li>
+                <li>Tempo excedido da previsão (atrasos acumulados)</li>
+                <li>Tempo médio por status</li>
+                <li>Demandas por status (gráfico de distribuição)</li>
+                <li>Programação da semana (visão semanal das demandas)</li>
+                <li>Tempo médio ocioso (intervalo entre demandas de uma Frota)</li>
+            </ul>
+
+            <h2 id="detalhes-frota">6.10 Detalhes de uma Frota (dentro da Torre)</h2>
+            <p>Ao acessar uma Frota dentro da Torre de Controle, o Gestor vê:</p>
+            <ul class="lista-regras">
+                <li>Composição atual: motorista(s), cavalo, carreta(s) com seus respectivos status.</li>
+                <li>Localização do cavalo: última posição GPS recebida.</li>
+                <li>Histórico de demandas: ativas, finalizadas e futuras (com filtro por janela de dias — D+1, D+2, etc.).</li>
+                <li>Análises: total de demandas, receita total, KM total, receita por KM, dias ociosos, taxa de utilização, intervalo médio entre demandas.</li>
+                <li>Responsáveis: lista dos usuários responsáveis pelo acompanhamento da Frota.</li>
+            </ul>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

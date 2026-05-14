@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Tipos de Usuário — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '02-usuarios.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 2</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 2</span>
+                <h1>Tipos de Usuário</h1>
+                <p>Existem 6 tipos de usuário. Cada tipo tem acesso a áreas e ações diferentes.</p>
+            </section>
+
+            <div class="tabela-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Tipo</th><th>Quem é</th><th>O que pode fazer</th></tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr><td>Desenvolvedor</td><td>Equipe interna da CargaOnline</td><td>Acesso total a todas as transportadoras.</td></tr> -->
+                        <tr><td>Suporte</td><td>Suporte da CargaOnline</td><td>Acessa transportadoras para prestar atendimento.</td></tr>
+                        <tr><td>Admin</td><td>Administrador da transportadora</td><td>Gerencia tudo dentro da sua transportadora.</td></tr>
+                        <tr><td>Gestor</td><td>Gestor operacional</td><td>Gerencia Grupos de Capacitação e operações.</td></tr>
+                        <tr><td>Usuário</td><td>Motorista / colaborador</td><td>Acessa somente o que foi disponibilizado para ele.</td></tr>
+                        <!-- <tr><td>Gestor Embarcador</td><td>Gestor de embarcadora</td><td>Gerencia Ofertas de Frete da empresa embarcadora.</td></tr> -->
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="cadastro">2.1 Regras de Cadastro</h2>
+            <ul class="lista-regras">
+                <li>Não podem existir dois usuários com o mesmo CPF na mesma transportadora.</li>
+                <li>Não podem existir dois usuários com o mesmo e-mail na mesma transportadora.</li>
+                <li>Para cadastrar um Usuário (motorista), a transportadora precisa ter licença disponível. Sem licença, o cadastro é bloqueado automaticamente.</li>
+                <li>Usuário desativado perde o acesso imediato — não consegue fazer login.</li>
+                <li>Ao desativar um usuário, o número de celular cadastrado é liberado automaticamente para outro cadastro.</li>
+                <li>É possível importar vários usuários por planilha. O sistema valida cada linha e mostra os erros antes de salvar.</li>
+                <li>Um usuário pode estar vinculado a mais de uma transportadora, mas sempre terá uma transportadora principal.</li>
+            </ul>
+
+            <div class="callout callout--atencao">
+                <span class="callout__icon">⚠️</span>
+                <div class="callout__body">
+                    <strong>Atenção:</strong> Senha padrão gerada automaticamente: <strong>PRIMEIRO NOME + 6 últimos dígitos do CPF</strong>.<br>
+                    Exemplo: João, CPF terminando em 123456 → senha <code>Joao123456</code>.<br>
+                    No primeiro acesso, o sistema pede para redefinir a senha.
+                </div>
+            </div>
+
+            <h2 id="login">2.2 Login</h2>
+            <ul class="lista-regras">
+                <li>Login com CPF ou e-mail + senha.</li>
+                <li>Muitas tentativas erradas bloqueiam o acesso por 1 minuto.</li>
+                <li>Motoristas que acessam pelo aplicativo têm a sessão anterior encerrada automaticamente ao fazer novo login.</li>
+                <li>Usuários do painel web ficam logados por até 30 dias.</li>
+                <li>Pode ser exigido código de confirmação por e-mail ou SMS antes de entrar (dois fatores).</li>
+                <li>No primeiro acesso, pode ser exibida a tela de Termos de Uso — sem aceitar, não é possível continuar.</li>
+            </ul>
+
+            <h2 id="permissoes">2.3 Perfis de Permissão e Licenças</h2>
+            <ul class="lista-regras">
+                <li>O Admin Master pode criar Perfis de Permissão personalizados para controlar o que cada pessoa pode fazer no sistema.</li>
+                <li>Permissões também podem ser configuradas individualmente por usuário.</li>
+                <li>Cada transportadora tem um número máximo de usuários por tipo (licenças). Sem licença disponível, novos cadastros são bloqueados.</li>
+            </ul>
+
+            <div class="callout callout--atencao">
+                <span class="callout__icon">⚠️</span>
+                <div class="callout__body">
+                    <strong>Atenção:</strong> Se o suporte receber "não consigo cadastrar novos usuários",
+                    verifique primeiro se há licenças disponíveis — é a causa mais comum.
+                </div>
+            </div>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

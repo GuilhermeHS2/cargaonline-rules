@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8. Treinamentos e Aulas — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '08-treinamentos.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 8</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 8</span>
+                <h1>Treinamentos e Aulas</h1>
+                <p>Plataforma de cursos para motoristas e colaboradores.</p>
+            </section>
+
+            <p>A transportadora cria conteúdos e os disponibiliza para seus motoristas e colaboradores.</p>
+
+            <h2 id="estrutura">8.1 Estrutura</h2>
+            <ul class="lista-regras">
+                <li>Treinamentos agrupam Aulas de um mesmo tema.</li>
+                <li>Cada Aula pode ter vídeos, PDFs, imagens e outros materiais.</li>
+                <li>Ao final de uma Aula pode haver um Questionário.</li>
+            </ul>
+
+            <h2 id="regras">8.2 Regras</h2>
+            <ul class="lista-regras">
+                <li>Aulas desativadas não aparecem para os usuários.</li>
+                <li>Aulas podem ser compartilhadas entre transportadoras.</li>
+                <li>"Bloquear avanço no vídeo" impede que o usuário pule partes do vídeo.</li>
+                <li>Perguntas do Questionário podem ser embaralhadas a cada acesso.</li>
+                <li>O progresso de cada usuário é registrado — percentual assistido e resultado no Questionário.</li>
+                <li>Aulas podem ter liberação programada por data para um Grupo de Capacitação.</li>
+                <li>Ao concluir uma Aula com certificado habilitado, o certificado é gerado automaticamente.</li>
+                <li>A carga horária da Aula (em minutos) é usada no cálculo de horas do certificado.</li>
+            </ul>
+
+            <div class="callout callout--atencao">
+                <span class="callout__icon">⚠️</span>
+                <div class="callout__body">
+                    <strong>Atenção:</strong> Se uma Aula for excluída, o histórico de progresso dos usuários é preservado.
+                </div>
+            </div>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

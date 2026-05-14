@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. Gamificação — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '10-gamificacao.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 10</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 10</span>
+                <h1>Gamificação (Premiação)</h1>
+                <p>Ranking de desempenho com pontuação, premiação e telemetria.</p>
+            </section>
+
+            <p>
+                O sistema de Gamificação cria um ranking de desempenho entre os motoristas,
+                com pontuação e premiação. É usado para incentivar boas práticas de condução
+                e cumprimento de tarefas.
+            </p>
+
+            <div class="callout callout--dica">
+                <span class="callout__icon">💡</span>
+                <div class="callout__body">
+                    <strong>Exemplo:</strong> a transportadora cria uma Gamificação mensal. Motoristas
+                    ganham pontos por completar checklists corretamente. No fim do mês, os 3 primeiros
+                    ganham prêmio.
+                </div>
+            </div>
+
+            <h2 id="tipos">10.1 Tipos de Gamificação</h2>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead><tr><th>Tipo</th><th>Como funciona</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Normal</strong></td><td>Pontos atribuídos manualmente pelo Gestor ou automaticamente por critérios (conclusão de checklist, aula, atividade, envio de arquivo).</td></tr>
+                        <tr><td><strong>Telemetria</strong></td><td>Pontuação automática baseada em dados de condução do veículo — frenagem, aceleração, velocidade, etc. <strong>Não pode ser alterada manualmente.</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="criterios">10.2 Critérios de Pontuação (Gamificação Normal)</h2>
+            <div class="tabela-wrapper">
+                <table>
+                    <thead><tr><th>Tipo de Critério</th><th>O que acontece</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Positivo</strong></td><td>Adiciona pontos ao participante.</td></tr>
+                        <tr><td><strong>Negativo</strong></td><td>Remove pontos do participante.</td></tr>
+                        <tr><td><strong>Zerar</strong></td><td>A pontuação vai para zero.</td></tr>
+                        <tr><td><strong>Eliminação</strong></td><td>O participante é eliminado da Gamificação.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="lista-regras">
+                <li>Critérios automáticos podem ser vinculados a: conclusão de Checklist, conclusão de Aula/Treinamento, envio de arquivo, conclusão de Atividade (CargaSign).</li>
+                <li>Todo critério pode ter uma Justificativa obrigatória ao atribuir pontos — o Gestor deve explicar o motivo.</li>
+                <li>Pode ser habilitado foto na justificativa (apenas para atualizações individuais; não disponível em uploads em massa).</li>
+                <li>Ao editar um critério existente, todos os participantes têm a pontuação recalculada automaticamente.</li>
+            </ul>
+
+            <h2 id="configuracoes">10.3 Configurações da Gamificação</h2>
+            <ul class="lista-regras">
+                <li>Data de início obrigatória. Data de fim opcional.</li>
+                <li>Modo de encerramento: Manual (Gestor encerra manualmente) ou Programado (encerra automaticamente na data de fim).</li>
+                <li>Uma vez encerrada, a Gamificação <strong>não pode ser reativada</strong>.</li>
+                <li>Pode ter banner, regulamento em PDF e valor de prêmio por ponto.</li>
+                <li><strong>"Ocultar posição":</strong> quando ativado, os motoristas não veem sua posição no ranking. O Gestor define a mensagem exibida para eles.</li>
+                <li><strong>"Posição total":</strong> quando ativado, o motorista pode comparar sua classificação com todos os participantes.</li>
+                <li><strong>"Bloquear acesso com pendências":</strong> quando ativado, motoristas com pendências em Treinamentos ou Comunicados não veem o relatório da Gamificação.</li>
+                <li>Empate no ranking: o critério de desempate configurado é aplicado automaticamente pelo sistema.</li>
+                <li>Formato de exibição para o motorista: Estrelas (1 a 5) ou Nota (A a E).</li>
+                <li>Período do ranking: Último mês, Últimos 45 dias ou Últimos 60 dias.</li>
+            </ul>
+
+            <h2 id="telemetria">10.4 Gamificação por Telemetria — Regras Completas</h2>
+            <p>
+                A Gamificação de Telemetria avalia o desempenho de condução de cada motorista com base em
+                dados coletados durante as viagens. É completamente automática.
+            </p>
+
+            <h3>Como a pontuação é calculada</h3>
+            <ul class="lista-regras">
+                <li>Cada motorista tem um <strong>Aproveitamento</strong> — uma média percentual de 0% a 100% calculada com base em todos os critérios de telemetria configurados.</li>
+                <li>Cada critério avalia um parâmetro de condução (ex: frenagem brusca, aceleração, excesso de velocidade) dentro de uma faixa de valores aceitável.</li>
+                <li>Quanto mais o motorista dirige dentro das faixas esperadas, maior é o Aproveitamento.</li>
+                <li>A Nota do motorista é calculada com base no Aproveitamento geral: Muito ruim (1) → Ruim (2) → Bom (3) → Muito bom (4) → Excelente (5).</li>
+            </ul>
+
+            <h3>Pontuação com valor monetário</h3>
+            <ul class="lista-regras">
+                <li>A transportadora pode configurar um "Valor total do período" — um valor em dinheiro que será distribuído com base no Aproveitamento percentual de cada motorista.</li>
+                <li>Exemplo: valor total do período = R$ 1.000,00. Motorista com 80% de Aproveitamento recebe R$ 800,00.</li>
+                <li>A premiação total exibida na Gamificação é calculada dinamicamente com base nos aproveitamentos atuais de todos os participantes.</li>
+            </ul>
+
+            <h3>Rodagem mínima</h3>
+            <ul class="lista-regras">
+                <li>É possível configurar uma rodagem mínima em km por dia. Motoristas que não atingirem a rodagem mínima em um determinado dia não têm aquele dia contabilizado na média.</li>
+                <li>Isso evita que dias de pouca movimentação (percursos muito curtos) distorçam o Aproveitamento.</li>
+            </ul>
+
+            <h3>Justificativa e correção de pontuação</h3>
+            <ul class="lista-regras">
+                <li>O Gestor pode registrar uma Justificativa no Aproveitamento de um motorista — explicando um resultado atípico.</li>
+                <li>É possível fazer uma "Correção de pontuação" manual — o Gestor registra o motivo e o sistema atualiza o Aproveitamento.</li>
+                <li>Toda correção fica registrada no Histórico de atualizações, com data, responsável e motivo.</li>
+            </ul>
+
+            <h3>Visibilidade do motorista</h3>
+            <ul class="lista-regras">
+                <li>O motorista vê seu Aproveitamento e Nota em forma de Estrelas ou Nota (A-E), conforme configurado.</li>
+                <li>Se a opção "Ocultar posição" estiver ativa, o motorista não vê onde está no ranking.</li>
+                <li>Se a opção "Posição total" estiver ativa, o motorista vê sua classificação entre todos os participantes.</li>
+            </ul>
+
+            <h3>Relatório de Telemetria</h3>
+            <ul class="lista-regras">
+                <li>O Gestor acessa o ranking de todos os participantes com: Aproveitamento, Nota, Valor calculado, dias pontuados e pontuação média.</li>
+                <li>É possível baixar o histórico completo de atualizações em planilha Excel, com: nome, CPF, parâmetro, critério, mês, quantidade, justificativa e data.</li>
+                <li>O relatório pode ser exportado por período e filtrado por critério.</li>
+            </ul>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

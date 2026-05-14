@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12. CargaDocs (Documentos) — Regras</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>window.PAGINA_ATUAL = '12-cargadocs.html';</script>
+</head>
+<body>
+
+<div id="app-header-mount"></div>
+<div class="app-layout">
+    <div id="app-sidebar-mount"></div>
+    <main class="app-content">
+        <div class="app-content__inner">
+
+            <nav class="breadcrumb"><a href="../index.html">Início</a> &rsaquo; Seção 12</nav>
+
+            <section class="section-hero">
+                <span class="section-hero__num">SEÇÃO 12</span>
+                <h1>CargaDocs (Documentos)</h1>
+                <p>Gestão digital de documentos dos motoristas e da operação.</p>
+            </section>
+
+            <h2 id="tipos">12.1 Tipos de Documento</h2>
+            <ul class="lista-regras">
+                <li><strong>Documentos pessoais do motorista:</strong> CNH, documentos de habilitação.</li>
+                <li><strong>Documentos da operação:</strong> arquivos vinculados a uma Demanda (notas fiscais, CT-e).</li>
+                <li><strong>Grupos de Documentação:</strong> conjuntos de documentos obrigatórios para operar.</li>
+            </ul>
+
+            <h2 id="aprovacao">12.2 Fluxo de Aprovação</h2>
+            <ol class="lista-regras">
+                <li>Motorista envia o documento pelo aplicativo.</li>
+                <li>Documento fica com status "Aprovação em espera".</li>
+                <li>Gestor analisa e aprova ("Válido") ou recusa.</li>
+                <li>Se recusado, o motorista reenvia.</li>
+            </ol>
+
+            <div class="callout callout--atencao">
+                <span class="callout__icon">⚠️</span>
+                <div class="callout__body">
+                    <strong>Atenção:</strong> Se documentos obrigatórios não estiverem com status "Válido",
+                    o motorista pode ser bloqueado de certas operações.
+                </div>
+            </div>
+
+            <div id="nav-rodape-mount"></div>
+        </div>
+        <div id="app-footer-mount"></div>
+    </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
