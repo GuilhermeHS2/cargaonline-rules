@@ -741,9 +741,38 @@ body.is-ready::after {
     th { background: #f4f4f4 !important; color: #232833 !important; }
     td { background: #fff !important; }
 
-    .callout--dica    { background: #EDF1F7 !important; }
-    .callout--atencao { background: #FEE8B0 !important; }
-    .callout--alerta  { background: #FCE6E7 !important; }
+    /* CALLOUTS no PDF: fundo claro + texto escuro + borda colorida.
+       O "* " força absolutamente todo conteúdo interno a usar texto escuro,
+       pois sem isso o texto herda a cor clara do tema escuro e fica ilegível. */
+    .callout,
+    .callout *,
+    .callout strong,
+    .callout__body,
+    .callout__icon { color: #232833 !important; }
+
+    .callout--dica {
+        background: #EDF1F7 !important;
+        border-left-color: #4A90E2 !important;
+    }
+    .callout--atencao {
+        background: #FEE8B0 !important;
+        border-left-color: #FFAA02 !important;
+    }
+    .callout--alerta {
+        background: #FCE6E7 !important;
+        border-left-color: #DB282C !important;
+    }
+
+    /* Outros elementos com cor — garantir contraste no PDF */
+    .muted { color: #555 !important; }
+    .tag,
+    .tag--primaria {
+        background: #efefef !important;
+        color: #232833 !important;
+        border: 1px solid #ddd !important;
+    }
+    .breadcrumb,
+    .breadcrumb a { color: #555 !important; }
 
     .callout, .tabela-wrapper, .card {
         page-break-inside: avoid;
